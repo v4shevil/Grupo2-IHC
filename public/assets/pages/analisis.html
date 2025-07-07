@@ -9,63 +9,88 @@
   <script src="../scripts/main.js" defer></script>
 </head>
 <body>
+
+<nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Mindra</h2>
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard.html">Inicio</a></li>
+          <li><a href="monitoreo.html">Monitoreo de salud</a></li>
+          <li><a href="asistencia.html">Asistencia y recordatorios</a></li>
+          <li><a href="analisis.html">Análisis de comportamiento</a></li>
+          <li><a href="retroalimentacion.html">Retroalimentación</a></li>
+          <li><a href="evaluacion.html">Evaluación emocional</a></li>
+          <li><a href="#" id="btnLogout">Cerrar sesión</a></li>
+        </ul>
+</nav>
+
+<button id="mobile-menu-button" class="mobile-menu-toggle">☰</button>
   <div id="sidebar-container"></div>
   <main class="main-content">
     <h1>Análisis de comportamiento</h1>
 
     <div class="card">
       <h3>US07. Reporte semanal</h3>
-      <p>📊 Tu tiempo total: 7h en sitios productivos, 3h en distractores</p>
+      <p>Tu tiempo total: 7h en sitios productivos, 3h en distractores</p>
     </div>
 
     <div class="card">
       <h3>US20. Configuración de preferencias</h3>
-      <p>⚙️ Preferencias actuales: Alertas suaves, Modo inteligente activo</p>
+      <p>Preferencias actuales: Alertas suaves, Modo inteligente activo</p>
     </div>
 
     <div class="card">
       <h3>US21. Biblioteca de ejercicios</h3>
-      <p>📚 Haz clic para acceder a tu biblioteca de ejercicios calmantes favoritos.</p>
+      <p>Haz clic para acceder a tu biblioteca de ejercicios calmantes favoritos.</p>
     </div>
 
     <div class="card">
       <h3>US22. Integración con journaling externo</h3>
-      <p>📝 Sincronizado con Daylio y Google Docs</p>
+      <p>Sincronizado con Daylio y Google Docs</p>
     </div>
 
     <div class="card">
       <h3>US30. Historial de sitios bloqueados</h3>
       <ul>
-        <li>⛔ instagram.com</li>
-        <li>⛔ tiktok.com</li>
+        <li>instagram.com</li>
+        <li>tiktok.com</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>US36. Modo enfoque personalizado</h3>
-      <p>🎯 Sesión activa de 50 min. Redes bloqueadas.</p>
+      <p>Sesión activa de 50 min. Redes bloqueadas.</p>
     </div>
 
     <div class="card">
       <h3>US37. Panel de bienestar digital</h3>
-      <p>✅ Tiempo útil hoy: 3h 45min</p>
-      <p>🔴 Límite de distracción superado</p>
+      <p>Tiempo útil hoy: 3h 45min</p>
+      <p>Límite de distracción superado</p>
     </div>
 
     <div class="card">
       <h3>US47. Exportar resumen mensual</h3>
-      <button>📤 Exportar resumen como PDF</button>
+      <button class="emotion-btn" onclick="seleccionarFrase(this, 'exportar')">Exportar resumen como PDF</button>
     </div>
 
-    <div class="card">
+<section class="card-section">
+  <div class="card-horizontal">
+    <div class="card-text">
       <h3>US49. Entrada reflexiva</h3>
-      <p>✍️ ¿Cómo fue tu semana emocionalmente? <button>Escribir ahora</button></p>
+      <p>🖋️ ¿Cómo fue tu semana emocionalmente?</p>
+      <textarea id="reflection-input" placeholder="Escribe tu reflexión aquí..." class="reflection-textarea"></textarea>
+      <button id="publish-button" class="btn-publish">Publicar</button>
+      <div id="reflection-output" class="reflection-output"></div>
     </div>
+  </div>
+</section>
 
-    <div class="card">
-      <h3>US50. Comparar hábitos entre semana y fin de semana</h3>
-      <p>🗓️ Entre semana: 60% productivo<br>Fines de semana: 35% productivo</p>
-    </div>
+  <div class="card">
+    <h3>US50. Comparar hábitos entre semana y fin de semana</h3>
+    <p>Entre semana: 60% productivo<br>Fines de semana: 35% productivo</p>
+  </div>
+
   </main>
 </body>
 </html>

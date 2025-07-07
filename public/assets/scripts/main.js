@@ -104,26 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
   enableSmoothScroll("Asistencia", "AsistenciaCard");
   enableSmoothScroll("Analisis", "AnalisisCard");
 
-  const sidebarContainer = document.getElementById("sidebar-container");
-  if (sidebarContainer) {
-    sidebarContainer.innerHTML = `
-      <nav class="sidebar">
-        <div class="sidebar-header">
-          <h2>Mindra</h2>
-        </div>
-        <ul class="sidebar-menu">
-          <li><a href="dashboard.html">Inicio</a></li>
-          <li><a href="monitoreo.html">Monitoreo de salud</a></li>
-          <li><a href="asistencia.html">Asistencia y recordatorios</a></li>
-          <li><a href="analisis.html">Análisis de comportamiento</a></li>
-          <li><a href="retroalimentacion.html">Retroalimentación</a></li>
-          <li><a href="evaluacion.html">Evaluación emocional</a></li>
-          <li><a href="#" id="btnLogout">Cerrar sesión</a></li>
-        </ul>
-      </nav>
-    `;
-  }
-
   document.addEventListener("click", function (e) {
     if (e.target && e.target.id === "btnLogout") {
       e.preventDefault();
@@ -137,4 +117,60 @@ document.addEventListener("DOMContentLoaded", () => {
   menuToggle?.addEventListener("click", () => {
     menu.classList.toggle("active");
   });
+
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const sidebar = document.querySelector(".sidebar");
+
+  if (mobileMenuButton && sidebar) {
+    mobileMenuButton.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  }
+
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const registros = [
+    {
+      inputId: "reflection-input",              
+      buttonId: "publish-button",
+      outputId: "reflection-output"
+    },
+    {
+      inputId: "momentos-criticos-input",       
+      buttonId: "publish-momentos",
+      outputId: "momentos-criticos-output"
+    },
+    {
+      inputId: "notas-emocion-input",          
+      buttonId: "publish-nota",
+      outputId: "notas-emocion-output"
+    }
+  ];
+
+  registros.forEach(({ inputId, buttonId, outputId }) => {
+    const input = document.getElementById(inputId);
+    const button = document.getElementById(buttonId);
+    const output = document.getElementById(outputId);
+
+    if (input && button && output) {
+      button.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (text !== "") {
+          const p = document.createElement("p");
+          p.textContent = text;
+          output.appendChild(p);
+          input.value = "";
+        }
+      });
+    }
+  });
+});
+
+function seleccionarFrase(button, idRespuesta) {
+  const texto = button.textContent;
+  const respuesta = document.getElementById(idRespuesta);
+  if (respuesta) {
+    respuesta.textContent = `Respuesta seleccionada: ${texto}`;
+  }
+}
