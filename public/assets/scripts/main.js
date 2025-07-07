@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const isLoginPage = window.location.pathname.includes("index.html");
 
   if (!isLoggedIn && !isLoginPage) {
-    window.location.href = "../index.html";
+    window.location.href = "/Grupo2-IHC/index.html";
     return;
   }
 
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target && e.target.id === "btnLogout") {
       e.preventDefault();
       localStorage.removeItem("loggedIn");
-      window.location.href = "../../index.html";
+      window.location.href = "/Grupo2-IHC/index.html";
     }
   });
 
