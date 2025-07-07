@@ -174,3 +174,17 @@ function seleccionarFrase(button, idRespuesta) {
     respuesta.textContent = `Respuesta seleccionada: ${texto}`;
   }
 }
+
+const invisibleToggle = document.getElementById("invisibleToggle");
+const invisibleStatus = document.getElementById("invisibleStatus");
+
+if (invisibleToggle && invisibleStatus) {
+  invisibleToggle.addEventListener("change", () => {
+    if (invisibleToggle.checked) {
+      invisibleStatus.textContent = "Activado";
+    } else {
+      invisibleStatus.textContent = "Desactivado";
+    }
+  });
+}
+
